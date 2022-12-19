@@ -1,0 +1,35 @@
+Add domain code for creating virtual host in Xampp server
+
+Path : C:/xampp/apache/conf/extra/httpd-vhosts.conf
+NameVirtualHost 127.0.0.1:80
+<VirtualHost *>
+  # Pfad muss angepasst werden
+  DocumentRoot C:/xampp/htdocs/
+  ServerName localhost
+</VirtualHost>
+<VirtualHost *>
+  # Pfad verweist auf Projekt-Ordner
+  DocumentRoot "C:/xampp/htdocs/path/site1"
+  ServerName site1.localhost
+  DirectoryIndex index.php
+  <Directory "C:/xampp/htdocs/path/site1">
+    AllowOverride All
+    Allow from All
+  </Directory>
+</VirtualHost>
+<VirtualHost *>
+  # Pfad verweist auf Projekt-Ordner
+  DocumentRoot "C:/xampp/htdocs/pathsite2"
+  ServerName site2.localhost
+  DirectoryIndex index.php
+  <Directory "C:/xampp/htdocs/pathsite2">
+    AllowOverride All
+    Allow from All
+  </Directory>
+</VirtualHost>
+
+Add domain for ip whitelist
+Path : C:\Windows\System32\drivers\etc\hosts
+127.0.0.1 localhost
+127.0.0.1 site1.localhost
+127.0.0.1 site2.localhost
